@@ -12,7 +12,11 @@ class MyCardView extends GetView {
         width: 250,
         height: 90,
         decoration: BoxDecoration(
-          color: Colors.white,
+          gradient: const LinearGradient(
+            end: Alignment.topRight,
+            begin: Alignment.bottomLeft,
+            colors: [Colors.white, Color(0xffF4FBFF)],
+          ),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -47,7 +51,7 @@ class MyCardView extends GetView {
                 Utils.spaceV(10),
                 Text(
                   'PWT-LPY',
-                  style: Utils.tStyleBold(10, AppColors.grey),
+                  style: Utils.tStyleRegular(10, AppColors.grey),
                 )
               ],
             ),
