@@ -15,104 +15,110 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Stack(
-        children: [
-          SvgPicture.asset(
-            AppImages.bg,
-            width: Get.width,
-            height: Get.height,
+        body: Stack(
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(AppImages.bg), fit: BoxFit.fill),
           ),
-          Padding(
+        ),
+        SafeArea(
+          child: Padding(
             padding: const EdgeInsets.all(20),
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Utils.spaceV(20),
-                  SvgPicture.asset(
-                    AppIcons.burgerMenu,
-                    height: 25,
-                  ),
-                  Stack(
-                    alignment: Alignment.topRight,
-                    children: [
-                      SizedBox(
-                        width: 150,
-                        child: Align(
-                          child: Image.asset(
-                            AppImages.home3d,
-                          ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SvgPicture.asset(
+                  AppIcons.burgerMenu,
+                  height: 25,
+                ),
+                Expanded(
+                  child: SizedBox(
+                    child: ListView(
+                      children: [
+                        Stack(
+                          alignment: Alignment.topRight,
+                          children: [
+                            SizedBox(
+                              width: 150,
+                              child: Align(
+                                child: Image.asset(
+                                  AppImages.home3d,
+                                ),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Utils.spaceV(60),
+                                SizedBox(
+                                  width: Get.width / 2,
+                                  child: Text(
+                                    'Mau pergi ke mana hari ini?',
+                                    style: Utils.tStyleBold(
+                                        24, AppColors.darkPurple),
+                                  ),
+                                ),
+                                Utils.spaceV(40),
+                                const TicketCardView(),
+                                Utils.spaceV(20),
+                                Text(
+                                  'Tiket Saya',
+                                  style: Utils.tStyleBold(
+                                    16,
+                                    AppColors.deepPurple,
+                                  ),
+                                ),
+                                Utils.spaceV(20),
+                                SingleChildScrollView(
+                                  physics: const BouncingScrollPhysics(),
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      const MyCardView(),
+                                      Utils.spaceH(20),
+                                      const MyCardView(),
+                                    ],
+                                  ),
+                                ),
+                                Utils.spaceV(20),
+                                Text(
+                                  'Berita',
+                                  style: Utils.tStyleBold(
+                                    16,
+                                    AppColors.deepPurple,
+                                  ),
+                                ),
+                                Utils.spaceV(10),
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      const NewsCardView(),
+                                      Utils.spaceH(10),
+                                      const NewsCardView(),
+                                      Utils.spaceH(10),
+                                      const NewsCardView(),
+                                      Utils.spaceH(10),
+                                      const NewsCardView(),
+                                      Utils.spaceH(10),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
                         ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Utils.spaceV(60),
-                          SizedBox(
-                            width: Get.width / 2,
-                            child: Text(
-                              'Mau pergi ke mana hari ini?',
-                              style: Utils.tStyleBold(24, AppColors.darkPurple),
-                            ),
-                          ),
-                          Utils.spaceV(40),
-                          const TicketCardView(),
-                          Utils.spaceV(20),
-                          Text(
-                            'Tiket Saya',
-                            style: Utils.tStyleBold(
-                              16,
-                              AppColors.deepPurple,
-                            ),
-                          ),
-                          Utils.spaceV(20),
-                          SingleChildScrollView(
-                            physics: const BouncingScrollPhysics(),
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                const MyCardView(),
-                                Utils.spaceH(20),
-                                const MyCardView(),
-                              ],
-                            ),
-                          ),
-                          Utils.spaceV(20),
-                          Text(
-                            'Berita',
-                            style: Utils.tStyleBold(
-                              16,
-                              AppColors.deepPurple,
-                            ),
-                          ),
-                          Utils.spaceV(10),
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                const NewsCardView(),
-                                Utils.spaceH(10),
-                                const NewsCardView(),
-                                Utils.spaceH(10),
-                                const NewsCardView(),
-                                Utils.spaceH(10),
-                                const NewsCardView(),
-                                Utils.spaceH(10),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
+                      ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     ));
   }
 }

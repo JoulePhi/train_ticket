@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kai_access/app/data/utils/app_colors.dart';
 import 'package:kai_access/app/data/utils/utils.dart';
 import 'package:get/get.dart';
+import 'package:kai_access/app/routes/app_pages.dart';
 
 class TicketCardView extends GetView {
   const TicketCardView({Key? key}) : super(key: key);
@@ -151,7 +152,9 @@ class TicketCardView extends GetView {
                   gradient: AppColors.oGradient,
                 ),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(Routes.SELECT_TICKET);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     disabledForegroundColor: Colors.transparent,

@@ -4,8 +4,11 @@ abstract class AppColors {
   static const darkPurple = Color(0xff59597C);
   static const deepPurple = Color(0xff333E63);
   static const lBlue = Color(0xff2D9CDB);
+  static const darkGrey = Color(0xff88879C);
+  static const lGrey = Color(0xffF2F2F2);
   static const grey = Color(0xff88879C);
   static const orange = Color(0xffF47814);
+  static const lOrange = Color(0xffFE9B4B);
   static const lTurquoise = Color.fromARGB(255, 179, 225, 252);
   static const darkBlue = Color(0xff2596D7);
   static const oGradient = LinearGradient(
